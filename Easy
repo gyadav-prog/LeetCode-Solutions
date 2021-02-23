@@ -1,1 +1,21 @@
-
+class Solution {
+    public int countBinarySubstrings(String s) {
+        int currentValueCount = 1;
+        int prevValueCount =0;
+        int count =0;
+        
+        for(int i=1;i<s.length();i++){
+            if(s.charAt(i) == s.charAt(i-1)){
+                currentValueCount++;
+            }else{
+                prevValueCount = currentValueCount;
+                currentValueCount =1;
+            }
+            
+            if(prevValueCount >= currentValueCount){
+                count++;
+            }
+        }
+        return count;
+    }
+}
